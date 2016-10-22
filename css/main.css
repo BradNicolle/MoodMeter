@@ -1,0 +1,81 @@
+.sidebar {
+    background-color: #0288D1;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    width: 70px;
+    transition: width 0.2s;
+    -webkit-transition: width 0.2s;
+    visibility: hidden;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar .header {
+    padding: 20px;
+}
+
+.header img {
+    width: 150px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar ul li span {
+    width: 100%;
+    font-size: 20pt;
+    color: white;
+    margin: 0px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.sidebar ul li span:hover {
+    background-color: white;
+    color: #AAAAAA;
+    text-decoration: none;
+}
+
+.content {
+    width: 100%;
+    color: black;
+    padding-left: 100px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.graph_container {
+    position: relative;
+    width: 80%;
+    border-right: 1px solid #CCCCCC;
+}
+
+.graph_container .tabs {
+    position: absolute;
+    right: -200px;
+    top: 30px;
+    width: 200px;
+    border: 1px solid #CCCCCC;
+    border-left: 0px;
+}
+
+.graph_container .tabs ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.graph_container .tabs ul li {
+    padding: 30px;
+}
+
+.graph_container .tabs ul li .selected {
+    background-color: #DDDDDD;
+}
