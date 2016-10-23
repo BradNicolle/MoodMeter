@@ -1,4 +1,5 @@
-var moodCtx = document.getElementById("moodChart").getContext("2d");
+var moodCtx = document.getElementById("moodChart");
+fitToContainer(moodCtx, 100, 100);
 var moodChart = new Chart(moodCtx, {
     type: 'line',
     data: {
@@ -43,9 +44,18 @@ var moodChart = new Chart(moodCtx, {
     }
 });
 
-var reasonCtx = document.getElementById("happyReasonChart").getContext("2d");
-var sadReasonCtx = document.getElementById("sadReasonChart").getContext("2d");
+var reasonCtx = document.getElementById("happyReasonChart");
+var sadReasonCtx = document.getElementById("sadReasonChart");
+
+
 var first = true;
+
+function fitToContainer(canvas, percentW, percentH) {
+    canvas.style.width = percentW + '%';
+    canvas.style.height = percentH + '%';
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+}
 
 function reasonsVisible() {
     if (!first) return;
