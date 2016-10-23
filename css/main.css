@@ -1,22 +1,5 @@
-.sidebar {
-    background-color: #0288D1;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: white;
-    width: 70px;
-    transition: width 0.2s;
-    -webkit-transition: width 0.2s;
-    visibility: hidden;
-}
-
-.sidebar:hover {
-    width: 200px;
-}
-
-.sidebar .header {
-    padding: 20px;
+body {
+    width: 100%;
 }
 
 .header img {
@@ -53,29 +36,47 @@
 
 .graph_container {
     position: relative;
-    width: 80%;
     border-right: 1px solid #CCCCCC;
 }
 
 .graph_container .tabs {
     position: absolute;
-    right: -200px;
+    left: 1400px;
     top: 30px;
     width: 200px;
-    border: 1px solid #CCCCCC;
-    border-left: 0px;
+    height: 100%;
 }
 
 .graph_container .tabs ul {
     list-style-type: none;
     margin: 0;
-    padding-left: 20px;
+    padding: 0;
 }
 
 .graph_container .tabs ul li {
     padding: 30px;
+    padding-left: 20px;
+    cursor: pointer;
 }
 
-.graph_container .tabs ul li .selected {
+.graph_container .tabs ul li:hover {
+    background-color: #EEEEEE;
+}
+
+.selected {
     background-color: #DDDDDD;
+    font-weight: bold;
+}
+
+.page {
+    position: absolute;
+    display: table-cell;
+}
+
+table {
+    border: 0;
+}
+
+table td {
+    text-align: center;
 }
