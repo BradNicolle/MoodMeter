@@ -6,14 +6,14 @@ var moodChart = new Chart(moodCtx, {
             label: 'Mood',
             data: [
                 {x: 1476282327000,y: 4.5},
-                {x: 1476382327000,y: 4.3},
-                {x: 1476482327000,y: 4.4},
-                {x: 1476582327000,y: 4.2},
-                {x: 1476682327000,y: 4.5},
-                {x: 1476782327000,y: 3.8},
-                {x: 1476882327000,y: 3.6},
-                {x: 1476982327000,y: 3.4},
-                {x: 1477022327000,y: 2.3},
+                {x: 1476382327000,y: 4.0},
+                {x: 1476482327000,y: 3.5},
+                {x: 1476582327000,y: 2.4},
+                {x: 1476682327000,y: 0.5},
+                {x: 1476782327000,y: -1.8},
+                {x: 1476882327000,y: -0.1},
+                {x: 1476982327000,y: 2.4},
+                {x: 1477022327000,y: 3.3},
                 {x: 1477081317000,y: 4.8},
                 {x: 1477182327000,y: 4.7}
             ],
@@ -31,6 +31,12 @@ var moodChart = new Chart(moodCtx, {
                     },
                     unit: 'day'
                 }
+            }],
+            yAxes: [{
+                ticks: {
+                    min: -5,
+                    max: 5
+                }
             }]
         },
         responsive: false
@@ -38,54 +44,66 @@ var moodChart = new Chart(moodCtx, {
 });
 
 var reasonCtx = document.getElementById("happyReasonChart").getContext("2d");
-var reasonChart = new Chart(reasonCtx, {
-    type: 'doughnut',
-    data: {
-        labels: [
-            'Workload',
-            'Management',
-            'Personal'
-        ],
-        datasets: [
-            {
-                data: [50, 25, 25],
-                backgroundColor: [
-                    '#90CAF9',
-                    '#EF9A9A',
-                    '#C5E1A5'
-                ]
-            }
-        ]
-    },
-    options: {
-        responsive: false
-    }
-});
-
 var sadReasonCtx = document.getElementById("sadReasonChart").getContext("2d");
-var sadReasonChart = new Chart(sadReasonCtx, {
-    type: 'doughnut',
-    data: {
-        labels: [
-            'Workload',
-            'Management',
-            'Personal'
-        ],
-        datasets: [
-            {
-                data: [80, 25, 25],
-                backgroundColor: [
-                    '#90CAF9',
-                    '#EF9A9A',
-                    '#C5E1A5'
-                ]
-            }
-        ]
-    },
-    options: {
-        responsive: false
-    }
-});
+var first = true;
+
+function reasonsVisible() {
+    if (!first) return;
+    first = false;
+    var reasonChart = new Chart(reasonCtx, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Workload',
+                'Teammates',
+                'Management',
+                'Personal',
+                'Other'
+            ],
+            datasets: [
+                {
+                    data: [45, 25, 16, 8, 25],
+                    backgroundColor: [
+                        '#90CAF9',
+                        '#EF9A9A',
+                        '#C5E1A5',
+                        '#E6EE9C'
+                    ]
+                }
+            ]
+        },
+        options: {
+            responsive: false
+        }
+    });
+
+    var sadReasonChart = new Chart(sadReasonCtx, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Workload',
+                'Teammates',
+                'Management',
+                'Personal',
+                'Other'
+            ],
+            datasets: [
+                {
+                    data: [80, 12, 25, 25, 30],
+                    backgroundColor: [
+                        '#90CAF9',
+                        '#EF9A9A',
+                        '#C5E1A5',
+                        '#E6EE9C'
+                    ]
+                }
+            ]
+        },
+        options: {
+            responsive: false
+        }
+    });
+}
 
 function selectTab(id) {
     var allTabs = document.querySelectorAll('.tabs ul li');
@@ -101,4 +119,7 @@ function selectTab(id) {
     }
     
     document.getElementById(id + 'Page').style.visibility = 'visible';
+    if (id === 'reasons') {
+        reasonsVisible();
+    }
 }
